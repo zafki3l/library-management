@@ -1,9 +1,13 @@
 <?php
 
 use Core\Router\RouterDispatcher;
+use Dotenv\Dotenv;
 use FastRoute\Dispatcher;
 
 require dirname(__DIR__, 2) . '/vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(dirname(__DIR__, 2));
+$dotenv->load();
 
 $router = new RouterDispatcher(
     dirname(__DIR__) . '/routes/web.php'

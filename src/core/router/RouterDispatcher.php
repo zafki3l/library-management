@@ -15,7 +15,7 @@ class RouterDispatcher
     {
         $this->dispatcher = simpleDispatcher(function (RouteCollector $route) use ($routeFile) {
             $router = new RouteCollectorProxy($route);
-            
+
             require $routeFile;
         });
     }
