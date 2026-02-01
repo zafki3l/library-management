@@ -19,7 +19,7 @@ return
             'name' => $_ENV['MYSQL_DATABASE'],
             'user' => $_ENV['MYSQL_USER'],
             'pass' => $_ENV['MYSQL_PASSWORD'],
-            'port' => 3306,
+            'port' => $_ENV['MYSQL_PORT'],
         ],
     ],
     
