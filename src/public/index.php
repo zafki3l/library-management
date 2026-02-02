@@ -3,6 +3,8 @@
 use Core\Router\RouterDispatcher;
 use FastRoute\Dispatcher;
 
+require_once '../configs/path.php';
+
 require dirname(__DIR__, 2) . '/vendor/autoload.php';
 
 require_once '../bootstrap/app.php';
