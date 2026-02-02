@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Presentation\Http\Traits;
+namespace App\Shared\Http\Traits;
 
 trait HttpRequest
 {

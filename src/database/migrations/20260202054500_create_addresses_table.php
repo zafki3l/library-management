@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Phinx\Migration\AbstractMigration;
 
-final class CreateRolesTable extends AbstractMigration
+final class CreateAddressesTable extends AbstractMigration
 {
     /**
      * Change Method.
@@ -19,8 +19,10 @@ final class CreateRolesTable extends AbstractMigration
      */
     public function change(): void
     {
-        $this->table('roles')
-            ->addColumn('name', 'string')
+        $this->table('addresses', ['id' => false, 'primary_key' => ['id']])
+            ->addColumn('id', 'string', ['null' => false])
+            ->addColumn('city', 'string')
+            ->addColumn('street', 'string')
             ->create();
     }
 }

@@ -19,7 +19,7 @@ abstract class Controller
     {
         extract($data);
 
-        return require __DIR__ . '/../app/Presentation/views/' . $view . '.php';
+        return require dirname(__DIR__) . "/app/{$view}.php";
     }
 
     /**
@@ -34,13 +34,28 @@ abstract class Controller
     protected function view(string $view, string $layout, array $data = []): mixed
     {
         ob_start();
-        $this->render($view, $data);
+
+        // App\Modules\Home\Presentation\Controllers\HomeController        
+        $module = $this->getModuleName();
+
+        $path = "Modules/{$module}/Presentation/Views/{$view}";
+
+        $this->render($path, $data);
 
         $view_data = [
             'title' => $data['title'] ?? 'Document',
             'content' => ob_get_clean(),
         ];
 
-        return $this->render('layouts/main-layouts/' . $layout, $view_data);
+        return $this->render('Shared/Views/layouts/main-layouts/' . $layout, $view_data);
+    }
+
+    protected function getModuleName(): string
+    {
+        $class = static::class;
+
+        preg_match('/Modules\\\\([^\\\\]+)/', $class, $matches);
+
+        return $matches[1] ?? throw new \Exception("Module not found in namespace");
     }
 }

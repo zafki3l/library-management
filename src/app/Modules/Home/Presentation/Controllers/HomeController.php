@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Presentation\Http\Controller;
+namespace App\Modules\Home\Presentation\Controllers;
 
-use App\Presentation\Http\Traits\HttpResponse;
+use App\Shared\Http\Traits\HttpResponse;
 use Core\Controller;
 
 class HomeController extends Controller
 {
     use HttpResponse;
-    
+
     public function index()
     {
         return $this->view('home', 'main.layouts');
