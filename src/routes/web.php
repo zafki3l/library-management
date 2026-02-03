@@ -1,9 +1,13 @@
 <?php
 
 use App\Modules\Home\Presentation\Controllers\HomeController;
+use App\Modules\Role\Presentation\Controllers\RoleController;
 
 $route->get('/', [HomeController::class, 'index']);
 
 $route->get('/clickme', [HomeController::class, 'click']);
 
 $route->post('/process', [HomeController::class, 'process']);
+
+// Roles
+$route->get('/roles', [RoleController::class, 'index']);
