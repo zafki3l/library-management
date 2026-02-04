@@ -12,11 +12,12 @@ services:
     build:
       context: .
       dockerfile: php/Dockerfile
-    container_name: php_app
+    container_name: php_app_v1
     volumes:
       - ./:/var/www/html 
     depends_on:
       - db
+      - mongo
 
   db:
     image: mysql:8
@@ -30,5 +31,15 @@ services:
     ports:
       - "3306:3306"
 
+  mongo:
+    image: mongo:7
+    container_name: mongo_v1
+    restart: always
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_data:/data/db
+
 volumes:
   db_data:
+  mongo_data:

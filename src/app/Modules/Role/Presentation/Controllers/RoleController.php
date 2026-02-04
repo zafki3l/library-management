@@ -32,7 +32,7 @@ class RoleController extends Controller
     public function store(): void
     {
         $request = new CreateRoleRequest();
-
+        
         $this->createRoleUseCase
             ->execute($request);
 
