@@ -33,8 +33,7 @@ class RoleController extends Controller
     {
         $request = new CreateRoleRequest();
         
-        $this->createRoleUseCase
-            ->execute($request);
+        $this->createRoleUseCase->execute($request);
 
         $this->redirect(ROOT_URL . '/roles');
     }
